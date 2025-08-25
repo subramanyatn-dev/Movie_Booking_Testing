@@ -1,0 +1,42 @@
+package tests;
+
+import base.BaseTest;
+import io.restassured.response.Response;
+import org.testng.annotations.Test;
+import utils.DataProviderUtils;
+
+import java.util.Map;
+
+import static io.restassured.RestAssured.given;
+
+public class BookingTests extends BaseTest {
+
+    @Test(dataProvider = "bookingData", dataProviderClass = DataProviderUtils.class)
+    public void createBookingTest(Map<String, Object> testData) {
+
+        String bookingId = testData.get("bookingId").toString();
+        String userId = testData.get("userId").toString();
+        String movieTitle = testData.get("movieTitle").toString();
+        String bookingDate = testData.get("bookingDate").toString();
+        String ticketCount = testData.get("ticketCount").toString();
+        int expectedStatus = Integer.parseInt(testData.get("expectedStatusCode").toString());
+
+        System.out.println("Running: " + testData.get("id") + " - " + 
+                           (movieTitle.isEmpty() ? "Missing movie title" : movieTitle));
+
+        Response response =
+                given()
+                        .header("Authorization", "Bearer " + token)
+                        .contentType("application/x-www-form-urlencoded")
+                        .formParam("bookingId", bookingId)
+                        .formParam("userId", userId)
+                        .formParam("movieTitle", movieTitle)
+                        .formParam("bookingDate", bookingDate)
+                        .formParam("ticketCount", ticketCount)
+                .when()
+                        .post("/BookingService/addBooking");
+
+        response.then().statusCode(expectedStatus);
+    }
+}
+

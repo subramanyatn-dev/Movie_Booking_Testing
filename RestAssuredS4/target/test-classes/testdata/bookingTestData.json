@@ -1,0 +1,73 @@
+[
+  {
+    "id": "SCRUMT-73",
+    "endpoint": "add_booking",
+    "bookingId": "9001",
+    "userId": "1003",
+    "movieTitle": "Uncharted",
+    "bookingDate": "01/09/2022",
+    "ticketCount": "4",
+    "expectedStatusCode": 200
+  },
+  {
+    "id": "SCRUMT-74",
+    "endpoint": "add_booking",
+    "bookingId": "9002",
+    "userId": "1003",
+    "movieTitle": "",
+    "bookingDate": "01/09/2022",
+    "ticketCount": "4",
+    "expectedStatusCode": 400
+  },
+  {
+    "id": "SCRUMT-75",
+    "endpoint": "add_booking",
+    "bookingId": "9003",
+    "userId": "1003",
+    "movieTitle": "Avatar",
+    "bookingDate": "01/09/2022",
+    "ticketCount": "-5",
+    "expectedStatusCode": 400
+  },
+  {
+    "id": "SCRUMT-76",
+    "endpoint": "add_booking",
+    "bookingId": "9004",
+    "userId": "1003",
+    "movieTitle": "Interstellar",
+    "bookingDate": "2022/09/01",
+    "ticketCount": "2",
+    "expectedStatusCode": 400
+  },
+  {
+    "id": "SCRUMT-77",
+    "endpoint": "add_booking",
+    "bookingId": "9005",
+    "userId": "1003",
+    "movieTitle": "Titanic",
+    "bookingDate": "31/02/2022",
+    "ticketCount": "3",
+    "expectedStatusCode": 400
+  },
+  {
+    "id": "SCRUMT-120",
+    "endpoint": "add_booking",
+    "bookingId": "abc123",
+    "userId": "1003",
+    "movieTitle": "Matrix",
+    "bookingDate": "01/09/2022",
+    "ticketCount": "2",
+    "expectedStatusCode": 400
+  },
+  {
+    "id": "SCRUMT-121",
+    "endpoint": "add_booking",
+    "bookingId": "9006",
+    "userId": "abc",
+    "movieTitle": "Matrix",
+    "bookingDate": "01/09/2022",
+    "ticketCount": "2",
+    "expectedStatusCode": 400
+  }
+]
+

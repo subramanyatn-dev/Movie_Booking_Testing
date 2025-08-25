@@ -1,0 +1,106 @@
+package tests;
+
+import base.BaseTest;
+import io.restassured.response.Response;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class AddBookingTests extends BaseTest {
+
+    @Test(groups = "addBooking")
+    public void SCRUM_73_ValidBooking() {
+        Response res = request
+                .formParam("bookingId", "9001")
+                .formParam("userId", "1003")
+                .formParam("movieTitle", "Uncharted")
+                .formParam("bookingDate", "01/09/2022")
+                .formParam("ticketCount", "4")
+                .post("/addBooking");
+
+        Assert.assertEquals(res.statusCode(), 200);
+        Assert.assertTrue(res.jsonPath().get("bookingId") != null || res.jsonPath().get("message") != null);
+    }
+
+    @Test(groups = "addBooking")
+    public void SCRUM_74_MissingMovieTitle() {
+        Response res = request
+                .formParam("bookingId", "9002")
+                .formParam("userId", "1003")
+                .formParam("bookingDate", "01/09/2022")
+                .formParam("ticketCount", "4")
+                .post("/addBooking");
+
+        Assert.assertTrue(res.statusCode() == 200 || res.statusCode() == 400 || res.statusCode() == 422);
+        Assert.assertTrue(res.asString().toLowerCase().contains("movie"));
+    }
+
+    @Test(groups = "addBooking")
+    public void SCRUM_75_InvalidTicketCount() {
+        Response res = request
+                .formParam("bookingId", "9003")
+                .formParam("userId", "1003")
+                .formParam("movieTitle", "Avatar")
+                .formParam("bookingDate", "01/09/2022")
+                .formParam("ticketCount", "-5")
+                .post("/addBooking");
+
+        Assert.assertTrue(res.statusCode() == 200 || res.statusCode() == 400 || res.statusCode() == 422);
+        Assert.assertTrue(res.asString().toLowerCase().contains("ticket"));
+    }
+
+    @Test(groups = "addBooking")
+    public void SCRUM_76_WrongDateFormat() {
+        Response res = request
+                .formParam("bookingId", "9004")
+                .formParam("userId", "1003")
+                .formParam("movieTitle", "Interstellar")
+                .formParam("bookingDate", "2022/09/01")
+                .formParam("ticketCount", "2")
+                .post("/addBooking");
+
+        Assert.assertTrue(res.statusCode() == 200 || res.statusCode() == 400 || res.statusCode() == 422);
+        Assert.assertTrue(res.asString().toLowerCase().contains("date"));
+    }
+
+    @Test(groups = "addBooking")
+    public void SCRUM_77_InvalidDate() {
+        Response res = request
+                .formParam("bookingId", "9005")
+                .formParam("userId", "1003")
+                .formParam("movieTitle", "Titanic")
+                .formParam("bookingDate", "31/02/2022")
+                .formParam("ticketCount", "3")
+                .post("/addBooking");
+
+        Assert.assertTrue(res.statusCode() == 200 || res.statusCode() == 400 || res.statusCode() == 422);
+        Assert.assertTrue(res.asString().toLowerCase().contains("date"));
+    }
+
+    @Test(groups = "addBooking")
+    public void SCRUM_120_InvalidBookingId() {
+        Response res = request
+                .formParam("bookingId", "abc123")
+                .formParam("userId", "1003")
+                .formParam("movieTitle", "Matrix")
+                .formParam("bookingDate", "01/09/2022")
+                .formParam("ticketCount", "2")
+                .post("/addBooking");
+
+        Assert.assertTrue(res.statusCode() == 200 || res.statusCode() == 400 || res.statusCode() == 422);
+        Assert.assertTrue(res.asString().toLowerCase().contains("bookingid"));
+    }
+
+    @Test(groups = "addBooking")
+    public void SCRUM_121_InvalidUserId() {
+        Response res = request
+                .formParam("bookingId", "9006")
+                .formParam("userId", "abc")
+                .formParam("movieTitle", "Matrix")
+                .formParam("bookingDate", "01/09/2022")
+                .formParam("ticketCount", "2")
+                .post("/addBooking");
+
+        Assert.assertTrue(res.statusCode() == 200 || res.statusCode() == 400 || res.statusCode() == 422);
+        Assert.assertTrue(res.asString().toLowerCase().contains("userid"));
+    }
+}

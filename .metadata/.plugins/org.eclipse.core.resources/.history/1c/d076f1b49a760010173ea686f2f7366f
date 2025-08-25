@@ -1,0 +1,52 @@
+package base;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import org.testng.annotations.BeforeClass;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+
+public class BaseTest {
+    protected RequestSpecification request;
+    protected String baseUrl;
+    protected String token;
+
+    @BeforeClass
+    public void setup() throws Exception {
+        Properties prop = new Properties();
+        prop.load(new FileInputStream("src/test/resources/config.properties"));
+        baseUrl = prop.getProperty("base.url");
+        String username = prop.getProperty("username");
+        String password = prop.getProperty("password");
+
+        // Step 1 - Get auth_code
+        Response loginRes = RestAssured.given()
+                .baseUri(baseUrl)
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .formParam("username", username)
+                .formParam("password", password)
+                .post("/OAuthRestApi/webapi/auth/login");
+
+        loginRes.then().statusCode(200);
+        String authCode = loginRes.jsonPath().getString("auth_code");
+
+        // Step 2 - Get access_token
+        Response tokenRes = RestAssured.given()
+                .baseUri(baseUrl)
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .formParam("auth_code", authCode)
+                .post("/OAuthRestApi/webapi/auth/token");
+
+        tokenRes.then().statusCode(200);
+        token = tokenRes.jsonPath().getString("access_token");
+
+        // Prepare common request spec
+        RestAssured.baseURI = baseUrl + "/MovieAPI/BookingService";
+        request = RestAssured.given()
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("Accept", "application/json")
+                .header("Authorization", "Bearer " + token);
+    }
+}

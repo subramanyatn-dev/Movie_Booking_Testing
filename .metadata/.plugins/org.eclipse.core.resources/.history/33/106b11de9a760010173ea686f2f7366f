@@ -1,0 +1,51 @@
+package tests;
+
+import base.BaseTest;
+import io.restassured.response.Response;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class BookingTests extends BaseTest {
+
+    @Test(groups = {"addBooking"})
+    public void testSCRUM120_InvalidBookingId() {
+        Response res = request
+                .formParam("bookingId", "abc123")
+                .formParam("userId", "1003")
+                .formParam("ticketCount", "2")
+                .formParam("movieTitle", "Matrix")
+                .formParam("bookingDate", "01/09/2022")
+                .post("/addBooking");
+
+        Assert.assertTrue(res.statusCode() == 200 || res.statusCode() == 400 || res.statusCode() == 422);
+        Assert.assertTrue(res.asString().toLowerCase().contains("bookingid"));
+    }
+
+    @Test(groups = {"addBooking"})
+    public void testSCRUM121_InvalidUserId() {
+        Response res = request
+                .formParam("bookingId", "9006")
+                .formParam("userId", "abc")
+                .formParam("ticketCount", "2")
+                .formParam("movieTitle", "Matrix")
+                .formParam("bookingDate", "01/09/2022")
+                .post("/addBooking");
+
+        Assert.assertTrue(res.statusCode() == 200 || res.statusCode() == 400 || res.statusCode() == 422);
+        Assert.assertTrue(res.asString().toLowerCase().contains("userid"));
+    }
+
+    @Test(groups = {"addBooking"})
+    public void testSCRUM122_InvalidTicketCount() {
+        Response res = request
+                .formParam("bookingId", "9006")
+                .formParam("userId", "1003")
+                .formParam("ticketCount", "-5")
+                .formParam("movieTitle", "Matrix")
+                .formParam("bookingDate", "01/09/2022")
+                .post("/addBooking");
+
+        Assert.assertTrue(res.statusCode() == 200 || res.statusCode() == 400 || res.statusCode() == 422);
+        Assert.assertTrue(res.asString().toLowerCase().contains("ticketcount"));
+    }
+}

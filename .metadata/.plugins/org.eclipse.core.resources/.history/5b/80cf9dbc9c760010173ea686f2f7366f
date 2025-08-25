@@ -1,0 +1,38 @@
+package base;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import util.ConfigLoader;
+
+import static io.restassured.RestAssured.given;
+
+public class BaseTest {
+    protected String token;
+
+    public void authenticate() {
+        RestAssured.baseURI = ConfigLoader.get("base_url");
+
+        // Step 1: Login → Get auth_code
+        Response loginResp = given()
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .formParam("username", ConfigLoader.get("username"))
+                .formParam("password", ConfigLoader.get("password"))
+                .post(ConfigLoader.get("login_endpoint"))
+                .then().statusCode(200)
+                .extract().response();
+
+        String authCode = loginResp.jsonPath().getString("auth_code");
+
+        // Step 2: Get access_token
+        Response tokenResp = given()
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .formParam("auth_code", authCode)
+                .post(ConfigLoader.get("token_endpoint"))
+                .then().statusCode(200)
+                .extract().response();
+
+        token = tokenResp.jsonPath().getString("access_token");
+    }
+}
+
+

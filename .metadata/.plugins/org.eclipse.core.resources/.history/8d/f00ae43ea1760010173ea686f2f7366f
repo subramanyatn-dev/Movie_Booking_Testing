@@ -1,0 +1,36 @@
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
+import io.qameta.allure.Attachment;
+
+@Epic("Booking API Tests")
+@Feature("Add Booking Feature")
+public class BookingTests extends BaseTest {
+
+    @Test(dataProvider = "bookingData")
+    @Description("Verify booking API for various positive and negative scenarios")
+    public void testAddBooking(Map<String, String> data) {
+        attachText("Test Data", data.toString()); // Attaching input data
+
+        given()
+            .log().ifValidationFails()
+            .header("Authorization", "Bearer " + token)
+            .formParam("bookingId", data.get("bookingId"))
+            .formParam("userId", data.get("userId"))
+            .formParam("movieTitle", data.get("movieTitle"))
+            .formParam("bookingDate", data.get("bookingDate"))
+            .formParam("ticketCount", data.get("ticketCount"))
+        .when()
+            .post("/BookingService/addBooking")
+        .then()
+            .log().ifValidationFails()
+            .statusCode(Integer.parseInt(data.get("expectedStatus")));
+    }
+
+    @Attachment(value = "{0}", type = "text/plain")
+    public String attachText(String name, String content) {
+        return content;
+    }
+}
+

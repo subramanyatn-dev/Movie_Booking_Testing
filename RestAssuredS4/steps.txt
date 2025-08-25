@@ -1,0 +1,181 @@
+===============================================
+   MOVIE API TEST AUTOMATION - RUN STEPS
+===============================================
+
+PROJECT STRUCTURE:
+RestAssuredS4/
+├── pom.xml                    # Maven configuration & dependencies
+├── testng.xml                # TestNG suite configuration  
+├── .gitignore                # Git ignore rules
+├── DATAPROVIDER_INTERVIEW_GUIDE.md  # DataProvider explanation
+└── src/test/
+    ├── java/
+    │   ├── base/
+    │   │   └── BaseTest.java          # Base class with common methods
+    │   ├── tests/
+    │   │   ├── AuthenticationTests.java    # Auth API tests (5 tests)
+    │   │   ├── BookingTests.java          # Booking creation tests (7 tests)
+    │   │   ├── DeleteBookingTests.java    # Delete booking tests (6 tests)
+    │   │   └── ViewBookingTests.java      # View booking tests (7 tests)
+    │   └── utils/
+    │       ├── ConfigLoader.java          # Configuration loader
+    │       └── DataProviderUtils.java     # Test data providers
+    └── resources/
+        ├── config.properties              # API endpoints & settings
+        └── testdata/
+            ├── authenticationTestData.json  # Auth test cases
+            ├── bookingTestData.json        # Booking test cases
+            ├── deleteBookingTestData.json  # Delete test cases
+            └── viewBookingTestData.json    # View test cases
+
+TARGET FOLDER (Generated after running tests):
+target/
+├── allure-results/           # Allure test results
+├── surefire-reports/         # TestNG HTML reports
+└── site/allure-maven-plugin/ # Allure HTML reports
+
+PREREQUISITES:
+- Java 17+ installed
+- Maven 3.6+ installed
+- Internet connection for API calls
+
+NAVIGATE TO PROJECT (IMPORTANT!):
+cd "/Users/subramanyatn/Documents/learn/Rest_Assured_0.0 copy/RestAssuredS4"
+
+⚠️  MAKE SURE YOU'RE IN THE RIGHT DIRECTORY:
+- You should see pom.xml file in current directory
+- Run: ls -la pom.xml (should show the file)
+- If you get "No such file", you're in wrong directory!
+
+VERIFY PROJECT STRUCTURE:
+# List main project files
+ls -la
+
+# Check test structure  
+find src/test -name "*.java" -o -name "*.json" -o -name "*.properties" | sort
+
+===============================================
+PROJECT OVERVIEW:
+===============================================
+🎯 FRAMEWORK TYPE: Data-Driven API Test Automation
+🛠️ TECH STACK: Java 17 + Maven + TestNG + Rest Assured + Allure
+📊 TOTAL TESTS: 25 tests across 4 API endpoints
+📁 TEST DATA: External JSON files for easy maintenance
+🔄 PATTERN: Single test method per class with parameterization
+
+API ENDPOINTS TESTED:
+1. Authentication API - Login/Token generation (5 tests)
+2. Booking API - Create movie bookings (7 tests) 
+3. View Booking API - Retrieve booking data (7 tests)
+4. Delete Booking API - Remove bookings (6 tests)
+
+FEATURES:
+✅ Clean, interview-friendly code structure
+✅ Data-driven testing with JSON files
+✅ Allure reporting with detailed test analytics
+✅ Configurable endpoints via properties file
+✅ Simplified DataProvider for easy explanation
+
+===============================================
+1. CLEAN PROJECT (Always run first)
+===============================================
+mvn clean
+
+===============================================
+2. RUN ALL TESTS (Single Command)
+===============================================
+mvn test
+
+===============================================
+3. RUN INDIVIDUAL TEST CLASSES
+===============================================
+# Authentication Tests (5 tests)
+mvn test -Dtest=AuthenticationTests
+
+# Booking Tests (7 tests)
+mvn test -Dtest=BookingTests
+
+# View Booking Tests (7 tests)
+mvn test -Dtest=ViewBookingTests
+
+# Delete Booking Tests (6 tests)
+mvn test -Dtest=DeleteBookingTests
+
+===============================================
+4. RUN MULTIPLE SPECIFIC TESTS
+===============================================
+# Run Authentication + View Tests
+mvn test -Dtest=AuthenticationTests,ViewBookingTests
+
+# Run only passing tests (skip failing ones)
+mvn test -Dtest=AuthenticationTests,ViewBookingTests,DeleteBookingTests
+
+# Run by test groups
+mvn test -Dgroups=authentication
+mvn test -Dgroups=booking
+mvn test -Dgroups=viewBooking
+mvn test -Dgroups=deleteBooking
+
+===============================================
+5. REPORT GENERATION
+===============================================
+
+BASIC TESTNG REPORT:
+# Report automatically generated after tests
+open target/surefire-reports/index.html
+
+ADVANCED ALLURE REPORT:
+# Generate report files
+mvn allure:report
+
+# View report in static folder
+open target/site/allure-maven-plugin/index.html
+
+# Start server and view report in browser
+mvn allure:serve
+
+===============================================
+6. COMPLETE WORKFLOWS
+===============================================
+
+# Full test run with basic report
+mvn clean test
+
+# Full test run with Allure report
+mvn clean test allure:report
+
+# Run tests and immediately view Allure report
+mvn clean test allure:serve
+
+# Quick run - only working tests with report
+mvn clean test -Dtest=AuthenticationTests,ViewBookingTests,DeleteBookingTests allure:serve
+
+===============================================
+EXPECTED RESULTS:
+===============================================
+Total Tests: 25
+Passing: 19 (76% success)
+- Authentication: 5/5 ✓
+- View Booking: 6/7 ✓
+- Delete Booking: 5/6 ✓
+- Booking: 3/7 ✓ (4 failures due to API accepting invalid data)
+
+===============================================
+TROUBLESHOOTING:
+===============================================
+COMMON ERROR: "No POM in this directory"
+SOLUTION: Make sure you're in RestAssuredS4 folder!
+1. cd "/Users/subramanyatn/Documents/learn/Rest_Assured_0.0 copy/RestAssuredS4"
+2. Check: ls -la pom.xml (should show the file)
+3. Then run Maven commands
+
+If tests fail to start:
+1. Check Java version: java -version
+2. Check Maven version: mvn -version
+3. Rebuild project: mvn clean compile test-compile
+4. Check internet connection for API calls
+
+If Allure report doesn't work:
+1. Generate report first: mvn allure:report
+2. Then serve: mvn allure:serve
+3. Or open static file: open target/site/allure-maven-plugin/index.html

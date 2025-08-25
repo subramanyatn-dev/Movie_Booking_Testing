@@ -1,0 +1,960 @@
+!SESSION 2025-08-11 15:26:07.728 -----------------------------------------------
+eclipse.buildId=4.37.0.20250731-0702
+java.version=21.0.4
+java.vendor=Amazon.com Inc.
+BootLoader constants: OS=macosx, ARCH=aarch64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/subramanyatn/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch aarch64 -product org.eclipse.epp.package.java.product -keyring /Users/subramanyatn/.eclipse_keyring
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-11 15:26:10.698
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.apache.felix.scr 4 0 2025-08-11 15:26:48.009
+!MESSAGE bundle org.apache.felix.scr:2.2.12 (61) Circular reference detected trying to get service {org.eclipse.m2e.core.project.IMavenProjectChangedListener}={service.id=252, service.bundleid=285, service.scope=bundle, osgi.ds.satisfying.condition.target=(osgi.condition.id=true), component.name=org.eclipse.m2e.core.internal.project.WorkspaceStateWriter, component.id=55}
+ stack of references: ServiceReference: {org.eclipse.m2e.core.project.IMavenProjectChangedListener}={service.id=252, service.bundleid=285, service.scope=bundle, osgi.ds.satisfying.condition.target=(osgi.condition.id=true), component.name=org.eclipse.m2e.core.internal.project.WorkspaceStateWriter, component.id=55}
+ServiceReference: {org.eclipse.m2e.core.project.IMavenProjectRegistry}={service.id=245, service.bundleid=285, service.scope=bundle, osgi.ds.satisfying.condition.target=(osgi.condition.id=true), component.name=org.eclipse.m2e.core.internal.project.registry.MavenProjectManager, component.id=58}
+    Dependency: DependencyManager: Component [Component: org.eclipse.m2e.core.embedder.MavenModelManager (43)] reference [projectManager]
+
+!STACK 0
+java.lang.Exception: stack trace
+	at org.apache.felix.scr.impl.ComponentRegistry.enterCreate(ComponentRegistry.java:493)
+	at org.apache.felix.scr.impl.BundleComponentActivator.enterCreate(BundleComponentActivator.java:735)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:901)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:229)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:226)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:120)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:588)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:590)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:666)
+	at org.apache.felix.scr.impl.manager.SingleRefPair.getServiceObject(SingleRefPair.java:88)
+	at org.apache.felix.scr.impl.inject.methods.BindMethod.getServiceObject(BindMethod.java:675)
+	at org.apache.felix.scr.impl.manager.DependencyManager.getServiceObject(DependencyManager.java:2625)
+	at org.apache.felix.scr.impl.manager.DependencyManager$MultipleDynamicCustomizer.prebind(DependencyManager.java:441)
+	at org.apache.felix.scr.impl.manager.DependencyManager.prebind(DependencyManager.java:1843)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.collectDependencies(AbstractComponentManager.java:1060)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:955)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:920)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:229)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:226)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:120)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:588)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:590)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:666)
+	at org.apache.felix.scr.impl.manager.SingleRefPair.getServiceObject(SingleRefPair.java:88)
+	at org.apache.felix.scr.impl.inject.field.FieldHandler$ReferenceMethodImpl.getServiceObject(FieldHandler.java:552)
+	at org.apache.felix.scr.impl.manager.DependencyManager.getServiceObject(DependencyManager.java:2625)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.prebind(DependencyManager.java:1414)
+	at org.apache.felix.scr.impl.manager.DependencyManager.prebind(DependencyManager.java:1843)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.collectDependencies(AbstractComponentManager.java:1060)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:955)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.activateInternal(AbstractComponentManager.java:776)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1287)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1238)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1232)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1152)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.trackAdding(ServiceTracker.java:959)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.track(ServiceTracker.java:895)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1184)
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:117)
+	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:134)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:988)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:999)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:933)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.register(ServiceRegistrationImpl.java:146)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.registerService(ServiceRegistry.java:321)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.registerService(BundleContextImpl.java:495)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:929)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:915)
+	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:133)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.registerService(AbstractComponentManager.java:984)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.activateInternal(AbstractComponentManager.java:752)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1287)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1238)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1232)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1152)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.trackAdding(ServiceTracker.java:959)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.track(ServiceTracker.java:895)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1184)
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:117)
+	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:134)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:988)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:999)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:933)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.register(ServiceRegistrationImpl.java:146)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.registerService(ServiceRegistry.java:321)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.registerService(BundleContextImpl.java:495)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.registerService(BundleContextImpl.java:515)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.registerService(BundleContextImpl.java:1068)
+	at org.eclipse.core.resources.ResourcesPlugin$WorkspaceInitCustomizer.addingService(ResourcesPlugin.java:594)
+	at org.eclipse.core.resources.ResourcesPlugin$WorkspaceInitCustomizer.addingService(ResourcesPlugin.java:1)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerAdding(ServiceTracker.java:947)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerAdding(ServiceTracker.java:1)
+	at org.osgi.util.tracker.AbstractTracked.trackAdding(AbstractTracked.java:257)
+	at org.osgi.util.tracker.AbstractTracked.trackInitial(AbstractTracked.java:184)
+	at org.osgi.util.tracker.ServiceTracker.open(ServiceTracker.java:324)
+	at org.osgi.util.tracker.ServiceTracker.open(ServiceTracker.java:267)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:565)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:826)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:571)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:818)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:768)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1066)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:394)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:643)
+	at org.eclipse.osgi.container.Module.start(Module.java:500)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:528)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:622)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:353)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:41)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:521)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:438)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:195)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:186)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:627)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:575)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1431)
+
+!ENTRY org.apache.felix.scr 4 0 2025-08-11 15:26:48.040
+!MESSAGE bundle org.apache.felix.scr:2.2.12 (61) Circular reference detected trying to get service {org.eclipse.m2e.core.project.IMavenProjectChangedListener}={service.id=252, service.bundleid=285, service.scope=bundle, osgi.ds.satisfying.condition.target=(osgi.condition.id=true), component.name=org.eclipse.m2e.core.internal.project.WorkspaceStateWriter, component.id=55}
+ stack of references: ServiceReference: {org.eclipse.m2e.core.project.IMavenProjectChangedListener}={service.id=252, service.bundleid=285, service.scope=bundle, osgi.ds.satisfying.condition.target=(osgi.condition.id=true), component.name=org.eclipse.m2e.core.internal.project.WorkspaceStateWriter, component.id=55}
+    Dependency: DependencyManager: Component [Component: org.eclipse.m2e.core.internal.project.registry.MavenProjectManager (58)] reference [MavenProjectChangedListener]
+ServiceReference: {org.eclipse.m2e.core.project.IMavenProjectRegistry}={service.id=245, service.bundleid=285, service.scope=bundle, osgi.ds.satisfying.condition.target=(osgi.condition.id=true), component.name=org.eclipse.m2e.core.internal.project.registry.MavenProjectManager, component.id=58}
+    Dependency: DependencyManager: Component [Component: org.eclipse.m2e.core.embedder.MavenModelManager (43)] reference [projectManager]
+    Dependency: DependencyManager: Component [Component: org.eclipse.m2e.core.embedder.MavenModelManager (43)] reference [projectManager]
+ServiceReference: {org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager}={service.id=243, service.bundleid=285, service.scope=bundle, osgi.ds.satisfying.condition.target=(osgi.condition.id=true), component.name=org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager, component.id=60}
+
+!STACK 0
+java.lang.Exception: stack trace
+	at org.apache.felix.scr.impl.ComponentRegistry.enterCreate(ComponentRegistry.java:493)
+	at org.apache.felix.scr.impl.BundleComponentActivator.enterCreate(BundleComponentActivator.java:735)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:901)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:229)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:226)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:120)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:588)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:590)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:666)
+	at org.apache.felix.scr.impl.manager.SingleRefPair.getServiceObject(SingleRefPair.java:88)
+	at org.apache.felix.scr.impl.inject.methods.BindMethod.getServiceObject(BindMethod.java:675)
+	at org.apache.felix.scr.impl.manager.DependencyManager.getServiceObject(DependencyManager.java:2625)
+	at org.apache.felix.scr.impl.manager.DependencyManager$MultipleDynamicCustomizer.prebind(DependencyManager.java:441)
+	at org.apache.felix.scr.impl.manager.DependencyManager.prebind(DependencyManager.java:1843)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.collectDependencies(AbstractComponentManager.java:1060)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:955)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:920)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:229)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:226)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:120)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:588)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:590)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:666)
+	at org.apache.felix.scr.impl.manager.SingleRefPair.getServiceObject(SingleRefPair.java:88)
+	at org.apache.felix.scr.impl.inject.field.FieldHandler$ReferenceMethodImpl.getServiceObject(FieldHandler.java:552)
+	at org.apache.felix.scr.impl.manager.DependencyManager.getServiceObject(DependencyManager.java:2625)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.prebind(DependencyManager.java:1414)
+	at org.apache.felix.scr.impl.manager.DependencyManager.prebind(DependencyManager.java:1843)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.collectDependencies(AbstractComponentManager.java:1060)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:955)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:920)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:229)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:226)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:120)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:588)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:590)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:666)
+	at org.apache.felix.scr.impl.manager.SingleRefPair.getServiceObject(SingleRefPair.java:88)
+	at org.apache.felix.scr.impl.inject.field.FieldHandler$ReferenceMethodImpl.getServiceObject(FieldHandler.java:552)
+	at org.apache.felix.scr.impl.manager.DependencyManager.getServiceObject(DependencyManager.java:2625)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.prebind(DependencyManager.java:1414)
+	at org.apache.felix.scr.impl.manager.DependencyManager.prebind(DependencyManager.java:1843)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.collectDependencies(AbstractComponentManager.java:1060)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:955)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.activateInternal(AbstractComponentManager.java:776)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1287)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1238)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1232)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1152)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.trackAdding(ServiceTracker.java:959)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.track(ServiceTracker.java:895)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1184)
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:117)
+	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:134)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:988)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:999)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:933)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.register(ServiceRegistrationImpl.java:146)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.registerService(ServiceRegistry.java:321)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.registerService(BundleContextImpl.java:495)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:929)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:915)
+	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:133)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.registerService(AbstractComponentManager.java:984)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.activateInternal(AbstractComponentManager.java:752)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1287)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1238)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1232)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1152)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.trackAdding(ServiceTracker.java:959)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.track(ServiceTracker.java:895)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1184)
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:117)
+	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:134)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:988)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:999)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:933)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.register(ServiceRegistrationImpl.java:146)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.registerService(ServiceRegistry.java:321)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.registerService(BundleContextImpl.java:495)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.registerService(BundleContextImpl.java:515)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.registerService(BundleContextImpl.java:1068)
+	at org.eclipse.core.resources.ResourcesPlugin$WorkspaceInitCustomizer.addingService(ResourcesPlugin.java:594)
+	at org.eclipse.core.resources.ResourcesPlugin$WorkspaceInitCustomizer.addingService(ResourcesPlugin.java:1)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerAdding(ServiceTracker.java:947)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerAdding(ServiceTracker.java:1)
+	at org.osgi.util.tracker.AbstractTracked.trackAdding(AbstractTracked.java:257)
+	at org.osgi.util.tracker.AbstractTracked.trackInitial(AbstractTracked.java:184)
+	at org.osgi.util.tracker.ServiceTracker.open(ServiceTracker.java:324)
+	at org.osgi.util.tracker.ServiceTracker.open(ServiceTracker.java:267)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:565)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:826)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:571)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:818)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:768)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1066)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:394)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:643)
+	at org.eclipse.osgi.container.Module.start(Module.java:500)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:528)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:622)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:353)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:41)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:521)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:438)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:195)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:186)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:627)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:575)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1431)
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-11 15:26:48.208
+!MESSAGE Logback config file: /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.7.100.20250418-1315.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:27:43.817
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:27:43.823
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:28:52.573
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:28:52.577
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:29:00.589
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:29:00.591
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:29:08.403
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:29:08.405
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:30:53.144
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:30:53.146
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:31:08.353
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:31:08.360
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:31:27.348
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:31:27.366
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:31:37.045
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:31:37.048
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:32:04.931
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:32:04.936
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:32:06.225
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:32:06.227
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:32:16.892
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:32:16.902
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:32:24.808
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:32:24.812
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 15:32:43.836
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/4.5.1/rest-assured-4.5.1.jar /Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy/3.0.9/groovy-3.0.9.jar /Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-xml/3.0.9/groovy-xml-3.0.9.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/4.5.1/json-path-4.5.1.jar /Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-json/3.0.9/groovy-json-3.0.9.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/4.5.1/rest-assured-common-4.5.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/4.5.1/xml-path-4.5.1.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.7.0/testng-7.7.0.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar /Users/subramanyatn/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 58550 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/4.5.1/rest-assured-4.5.1.jar:/Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy/3.0.9/groovy-3.0.9.jar:/Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-xml/3.0.9/groovy-xml-3.0.9.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/4.5.1/json-path-4.5.1.jar:/Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-json/3.0.9/groovy-json-3.0.9.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/4.5.1/rest-assured-common-4.5.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/4.5.1/xml-path-4.5.1.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.7.0/testng-7.7.0.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/subramanyatn/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar org.testng.remote.RemoteTestNG -serport 58550 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 15:32:45.141
+!MESSAGE Stop the socket server as it's still pending on accepting the client
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:33:05.324
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:33:05.325
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 15:33:10.078
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/4.5.1/rest-assured-4.5.1.jar /Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy/3.0.9/groovy-3.0.9.jar /Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-xml/3.0.9/groovy-xml-3.0.9.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/4.5.1/json-path-4.5.1.jar /Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-json/3.0.9/groovy-json-3.0.9.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/4.5.1/rest-assured-common-4.5.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/4.5.1/xml-path-4.5.1.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.7.0/testng-7.7.0.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar /Users/subramanyatn/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 58555 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/4.5.1/rest-assured-4.5.1.jar:/Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy/3.0.9/groovy-3.0.9.jar:/Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-xml/3.0.9/groovy-xml-3.0.9.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/4.5.1/json-path-4.5.1.jar:/Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-json/3.0.9/groovy-json-3.0.9.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/4.5.1/rest-assured-common-4.5.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/4.5.1/xml-path-4.5.1.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.7.0/testng-7.7.0.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/subramanyatn/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar org.testng.remote.RemoteTestNG -serport 58555 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:35:28.288
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:35:28.292
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:36:37.246
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:36:37.250
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:36:48.032
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:36:48.035
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:36:56.101
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:36:56.105
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:37:04.495
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:37:04.499
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:38:24.759
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:38:24.765
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:38:34.267
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:38:34.275
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:38:39.584
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:38:39.587
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:38:46.725
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:38:46.727
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 15:38:55.377
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/4.5.1/rest-assured-4.5.1.jar /Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy/3.0.9/groovy-3.0.9.jar /Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-xml/3.0.9/groovy-xml-3.0.9.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/4.5.1/json-path-4.5.1.jar /Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-json/3.0.9/groovy-json-3.0.9.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/4.5.1/rest-assured-common-4.5.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/4.5.1/xml-path-4.5.1.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.7.0/testng-7.7.0.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar /Users/subramanyatn/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 58641 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/4.5.1/rest-assured-4.5.1.jar:/Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy/3.0.9/groovy-3.0.9.jar:/Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-xml/3.0.9/groovy-xml-3.0.9.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/4.5.1/json-path-4.5.1.jar:/Users/subramanyatn/.m2/repository/org/codehaus/groovy/groovy-json/3.0.9/groovy-json-3.0.9.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/4.5.1/rest-assured-common-4.5.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/4.5.1/xml-path-4.5.1.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.7.0/testng-7.7.0.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/subramanyatn/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar org.testng.remote.RemoteTestNG -serport 58641 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:49:28.819
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:49:28.821
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:50:00.143
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:50:00.144
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:50:47.225
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:50:47.228
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:50:54.362
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:50:54.365
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:50:55.410
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:50:55.412
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:51:32.253
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:51:32.255
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:51:43.023
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:51:43.025
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:51:51.614
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:51:51.616
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:52:47.151
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:52:47.153
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:52:52.347
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:52:52.350
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:53:12.514
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:53:12.517
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:53:37.654
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:53:37.657
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:54:38.095
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:54:38.097
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:54:40.333
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:54:40.334
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:38.276
+!MESSAGE The POM for io.rest-assured:rest-assured:jar:${restassured.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-11 15:56:40.118
+!MESSAGE Could not detect hyperlinks due to timeout after 800 milliseconds
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:41.049
+!MESSAGE The POM for io.rest-assured:json-path:jar:${restassured.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:41.329
+!MESSAGE The POM for io.rest-assured:xml-path:jar:${restassured.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:42.333
+!MESSAGE The POM for org.testng:testng:jar:${testng.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:42.592
+!MESSAGE The POM for com.fasterxml.jackson.core:jackson-databind:jar:${jackson.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:42.869
+!MESSAGE The POM for com.fasterxml.jackson.core:jackson-core:jar:${jackson.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:43.255
+!MESSAGE The POM for com.fasterxml.jackson.core:jackson-annotations:jar:${jackson.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:43.730
+!MESSAGE The POM for org.hamcrest:hamcrest:jar:${hamcrest.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:44.702
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:44.705
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:45.029
+!MESSAGE The POM for io.rest-assured:rest-assured:jar:${restassured.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:45.031
+!MESSAGE The POM for io.rest-assured:json-path:jar:${restassured.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:45.031
+!MESSAGE The POM for io.rest-assured:xml-path:jar:${restassured.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:45.032
+!MESSAGE The POM for org.testng:testng:jar:${testng.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:45.033
+!MESSAGE The POM for com.fasterxml.jackson.core:jackson-databind:jar:${jackson.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:45.033
+!MESSAGE The POM for com.fasterxml.jackson.core:jackson-core:jar:${jackson.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:45.034
+!MESSAGE The POM for com.fasterxml.jackson.core:jackson-annotations:jar:${jackson.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:45.035
+!MESSAGE The POM for org.hamcrest:hamcrest:jar:${hamcrest.version} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:45.893
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-08-11 15:56:45.895
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2025-08-11 15:56:45.934
+!MESSAGE Could not download sources for io.rest-assured:rest-assured:${restassured.version}
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not resolve artifact io.rest-assured:rest-assured:jar:sources:${restassured.version}
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Missing io.rest-assured:rest-assured:jar:sources:${restassured.version}
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2025-08-11 15:56:45.938
+!MESSAGE Could not resolve artifact io.rest-assured:rest-assured:jar:sources:${restassured.version}
+!SUBENTRY 2 org.eclipse.m2e.core 4 0 2025-08-11 15:56:45.938
+!MESSAGE Missing io.rest-assured:rest-assured:jar:sources:${restassured.version}
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2025-08-11 15:56:46.251
+!MESSAGE Could not download sources for io.rest-assured:json-path:${restassured.version}
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not resolve artifact io.rest-assured:json-path:jar:sources:${restassured.version}
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Missing io.rest-assured:json-path:jar:sources:${restassured.version}
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2025-08-11 15:56:46.251
+!MESSAGE Could not resolve artifact io.rest-assured:json-path:jar:sources:${restassured.version}
+!SUBENTRY 2 org.eclipse.m2e.core 4 0 2025-08-11 15:56:46.251
+!MESSAGE Missing io.rest-assured:json-path:jar:sources:${restassured.version}
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2025-08-11 15:56:46.551
+!MESSAGE Could not download sources for io.rest-assured:xml-path:${restassured.version}
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not resolve artifact io.rest-assured:xml-path:jar:sources:${restassured.version}
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Missing io.rest-assured:xml-path:jar:sources:${restassured.version}
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2025-08-11 15:56:46.551
+!MESSAGE Could not resolve artifact io.rest-assured:xml-path:jar:sources:${restassured.version}
+!SUBENTRY 2 org.eclipse.m2e.core 4 0 2025-08-11 15:56:46.551
+!MESSAGE Missing io.rest-assured:xml-path:jar:sources:${restassured.version}
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2025-08-11 15:56:46.880
+!MESSAGE Could not download sources for org.testng:testng:${testng.version}
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.testng:testng:jar:sources:${testng.version}
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Missing org.testng:testng:jar:sources:${testng.version}
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2025-08-11 15:56:46.880
+!MESSAGE Could not resolve artifact org.testng:testng:jar:sources:${testng.version}
+!SUBENTRY 2 org.eclipse.m2e.core 4 0 2025-08-11 15:56:46.880
+!MESSAGE Missing org.testng:testng:jar:sources:${testng.version}
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2025-08-11 15:56:47.181
+!MESSAGE Could not download sources for com.fasterxml.jackson.core:jackson-databind:${jackson.version}
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.fasterxml.jackson.core:jackson-databind:jar:sources:${jackson.version}
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Missing com.fasterxml.jackson.core:jackson-databind:jar:sources:${jackson.version}
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2025-08-11 15:56:47.181
+!MESSAGE Could not resolve artifact com.fasterxml.jackson.core:jackson-databind:jar:sources:${jackson.version}
+!SUBENTRY 2 org.eclipse.m2e.core 4 0 2025-08-11 15:56:47.181
+!MESSAGE Missing com.fasterxml.jackson.core:jackson-databind:jar:sources:${jackson.version}
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2025-08-11 15:56:47.495
+!MESSAGE Could not download sources for com.fasterxml.jackson.core:jackson-core:${jackson.version}
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.fasterxml.jackson.core:jackson-core:jar:sources:${jackson.version}
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Missing com.fasterxml.jackson.core:jackson-core:jar:sources:${jackson.version}
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2025-08-11 15:56:47.495
+!MESSAGE Could not resolve artifact com.fasterxml.jackson.core:jackson-core:jar:sources:${jackson.version}
+!SUBENTRY 2 org.eclipse.m2e.core 4 0 2025-08-11 15:56:47.495
+!MESSAGE Missing com.fasterxml.jackson.core:jackson-core:jar:sources:${jackson.version}
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2025-08-11 15:56:48.062
+!MESSAGE Could not download sources for com.fasterxml.jackson.core:jackson-annotations:${jackson.version}
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.fasterxml.jackson.core:jackson-annotations:jar:sources:${jackson.version}
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Missing com.fasterxml.jackson.core:jackson-annotations:jar:sources:${jackson.version}
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2025-08-11 15:56:48.062
+!MESSAGE Could not resolve artifact com.fasterxml.jackson.core:jackson-annotations:jar:sources:${jackson.version}
+!SUBENTRY 2 org.eclipse.m2e.core 4 0 2025-08-11 15:56:48.062
+!MESSAGE Missing com.fasterxml.jackson.core:jackson-annotations:jar:sources:${jackson.version}
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2025-08-11 15:56:52.286
+!MESSAGE Could not download sources for org.hamcrest:hamcrest:${hamcrest.version}
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.hamcrest:hamcrest:jar:sources:${hamcrest.version}
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Missing org.hamcrest:hamcrest:jar:sources:${hamcrest.version}
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2025-08-11 15:56:52.286
+!MESSAGE Could not resolve artifact org.hamcrest:hamcrest:jar:sources:${hamcrest.version}
+!SUBENTRY 2 org.eclipse.m2e.core 4 0 2025-08-11 15:56:52.286
+!MESSAGE Missing org.hamcrest:hamcrest:jar:sources:${hamcrest.version}
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 15:59:01.908
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar /Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 58973 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar org.testng.remote.RemoteTestNG -serport 58973 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 15:59:31.160
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar /Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 58978 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar org.testng.remote.RemoteTestNG -serport 58978 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 16:01:19.953
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar /Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 59028 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar org.testng.remote.RemoteTestNG -serport 59028 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 16:04:06.708
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar /Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 59105 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar org.testng.remote.RemoteTestNG -serport 59105 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 16:06:04.979
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar /Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 59144 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar org.testng.remote.RemoteTestNG -serport 59144 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 16:08:22.261
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar /Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 59206 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar org.testng.remote.RemoteTestNG -serport 59206 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-11 16:21:02.339
+!MESSAGE Could not get hover region due to timeout after 1000 milliseconds
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 16:22:30.440
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-testng/2.27.0/allure-testng-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-java-commons/2.27.0/allure-java-commons-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-model/2.27.0/allure-model-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-test-filter/2.27.0/allure-test-filter-2.27.0.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar /Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 59394 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-testng/2.27.0/allure-testng-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-java-commons/2.27.0/allure-java-commons-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-model/2.27.0/allure-model-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-test-filter/2.27.0/allure-test-filter-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar org.testng.remote.RemoteTestNG -serport 59394 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 16:25:02.507
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-testng/2.27.0/allure-testng-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-java-commons/2.27.0/allure-java-commons-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-model/2.27.0/allure-model-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-test-filter/2.27.0/allure-test-filter-2.27.0.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar /Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 59480 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-testng/2.27.0/allure-testng-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-java-commons/2.27.0/allure-java-commons-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-model/2.27.0/allure-model-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-test-filter/2.27.0/allure-test-filter-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar org.testng.remote.RemoteTestNG -serport 59480 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 16:27:54.222
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-testng/2.27.0/allure-testng-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-java-commons/2.27.0/allure-java-commons-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-model/2.27.0/allure-model-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-test-filter/2.27.0/allure-test-filter-2.27.0.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar /Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar
+  VMArgs:    -ea -Dallure.results.directory=/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/allure-results
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 59534 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -Dallure.results.directory=/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/allure-results -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-testng/2.27.0/allure-testng-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-java-commons/2.27.0/allure-java-commons-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-model/2.27.0/allure-model-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-test-filter/2.27.0/allure-test-filter-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.5/rest-assured-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.5/json-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.5/rest-assured-common-5.5.5.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.5/xml-path-5.5.5.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar org.testng.remote.RemoteTestNG -serport 59534 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.eclipse.equinox.preferences 4 2 2025-08-11 16:28:46.316
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.equinox.preferences".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.core.internal.preferences.EclipsePreferences.put(EclipsePreferences.java:840)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.setDefault(ScopedPreferenceStore.java:453)
+	at org.eclipse.terminal.view.ui.internal.preferences.PreferencesInitializer.initializeDefaultPreferences(PreferencesInitializer.java:34)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:289)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:114)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:338)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:233)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:288)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:381)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:635)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:771)
+	at org.eclipse.core.runtime.preferences.AbstractScope.getNode(AbstractScope.java:37)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getDefaultPreferences(ScopedPreferenceStore.java:182)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getPreferenceNodes(ScopedPreferenceStore.java:211)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.internalGet(ScopedPreferenceStore.java:349)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getString(ScopedPreferenceStore.java:393)
+	at org.eclipse.terminal.connector.local.launcher.LocalLauncherDelegate.execute(LocalLauncherDelegate.java:112)
+	at org.eclipse.terminal.view.ui.internal.handler.LaunchTerminalCommandHandler.executeDelegate(LaunchTerminalCommandHandler.java:176)
+	at org.eclipse.terminal.view.ui.internal.handler.LaunchTerminalCommandHandler.execute(LaunchTerminalCommandHandler.java:89)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:277)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:98)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:305)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:237)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:174)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:165)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:488)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:485)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:204)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.executeItem(HandledContributionItem.java:444)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.handleWidgetSelection(AbstractContributionItem.java:472)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.lambda$2(AbstractContributionItem.java:494)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4660)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1657)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1680)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1665)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1394)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4427)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4003)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:678)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:627)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:575)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1431)
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 16:35:17.750
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-testng/2.27.0/allure-testng-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-java-commons/2.27.0/allure-java-commons-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-model/2.27.0/allure-model-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-test-filter/2.27.0/allure-test-filter-2.27.0.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.0/rest-assured-5.5.0.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.0/json-path-5.5.0.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.0/rest-assured-common-5.5.0.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.0/xml-path-5.5.0.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar /Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar
+  VMArgs:    -ea -Dallure.results.directory=/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/allure-results
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 59639 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -Dallure.results.directory=/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/allure-results -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-testng/2.27.0/allure-testng-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-java-commons/2.27.0/allure-java-commons-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-model/2.27.0/allure-model-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-test-filter/2.27.0/allure-test-filter-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.0/rest-assured-5.5.0.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.0/json-path-5.5.0.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.0/rest-assured-common-5.5.0.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.0/xml-path-5.5.0.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar org.testng.remote.RemoteTestNG -serport 59639 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+
+!ENTRY org.testng.eclipse 1 0 2025-08-11 16:39:43.273
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-testng/2.27.0/allure-testng-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-java-commons/2.27.0/allure-java-commons-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-model/2.27.0/allure-model-2.27.0.jar /Users/subramanyatn/.m2/repository/io/qameta/allure/allure-test-filter/2.27.0/allure-test-filter-2.27.0.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.0/rest-assured-5.5.0.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar /Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar /Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar /Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar /Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar /Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.0/json-path-5.5.0.jar /Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar /Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.0/rest-assured-common-5.5.0.jar /Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.0/xml-path-5.5.0.jar /Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar /Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar /Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar /Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar /Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar /Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar /Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar
+  VMArgs:    -ea -Dallure.results.directory=/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/allure-results
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 59718 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml
+java -ea -Dallure.results.directory=/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/allure-results -classpath /Users/subramanyatn/eclipse/java-2025-062/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/532/0/.cp/lib/testng-remote.jar:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/test-classes:/Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/target/classes:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-testng/2.27.0/allure-testng-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-java-commons/2.27.0/allure-java-commons-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-model/2.27.0/allure-model-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/qameta/allure/allure-test-filter/2.27.0/allure-test-filter-2.27.0.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured/5.5.0/rest-assured-5.5.0.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/subramanyatn/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/subramanyatn/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/subramanyatn/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/subramanyatn/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/json-path/5.5.0/json-path-5.5.0.jar:/Users/subramanyatn/.m2/repository/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/rest-assured-common/5.5.0/rest-assured-common-5.5.0.jar:/Users/subramanyatn/.m2/repository/io/rest-assured/xml-path/5.5.0/xml-path-5.5.0.jar:/Users/subramanyatn/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/Users/subramanyatn/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/subramanyatn/.m2/repository/org/testng/testng/7.11.0/testng-7.11.0.jar:/Users/subramanyatn/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar:/Users/subramanyatn/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.2/jackson-databind-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.2/jackson-core-2.17.2.jar:/Users/subramanyatn/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.2/jackson-annotations-2.17.2.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/Users/subramanyatn/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar org.testng.remote.RemoteTestNG -serport 59718 -protocol json -d /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/test-output /Users/subramanyatn/Documents/learn/Rest_Assured_0.0/RestAssuredS4/testng.xml

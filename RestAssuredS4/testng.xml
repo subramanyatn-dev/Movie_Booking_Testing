@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="MovieAPI Test Suite" parallel="tests" thread-count="4">
+    
+    <!-- Authentication Tests -->
+    <test name="Authentication Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="auth"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.AuthenticationTests"/>
+        </classes>
+    </test>
+    
+    <!-- Booking Tests -->
+    <test name="Booking Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="booking"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.BookingTests"/>
+        </classes>
+    </test>
+    
+    <!-- View Booking Tests -->
+    <test name="View Booking Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="viewBooking"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.ViewBookingTests"/>
+        </classes>
+    </test>
+    
+    <!-- Delete Booking Tests -->
+    <test name="Delete Booking Tests" preserve-order="true">
+        <groups>
+            <run>
+                <include name="deleteBooking"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.DeleteBookingTests"/>
+        </classes>
+    </test>
+    
+</suite>

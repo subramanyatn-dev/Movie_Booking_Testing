@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MovieAPI Automation Suite" verbose="1">
+    <test name="Add Booking Test Cases">
+        <groups>
+            <run>
+                <include name="addBooking"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.AddBookingTests"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,50 @@
+package tests;
+
+import base.BaseTest;
+import io.restassured.response.Response;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import utils.DataProviderUtils;
+
+import java.util.Map;
+
+import static io.restassured.RestAssured.given;
+
+public class BookingTests extends BaseTest {
+
+    @Test(dataProvider = "bookingData", dataProviderClass = DataProviderUtils.class)
+    public void addBookingTest(Map<String, Object> testData) {
+        System.out.println("Running: " + testData.get("testCaseId") + " - " + testData.get("description"));
+
+        Response response = given()
+                .header("Authorization", "Bearer " + token)
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .formParam("bookingId", testData.get("bookingId"))
+                .formParam("userId", testData.get("userId"))
+                .formParam("movieTitle", testData.get("movieTitle"))
+                .formParam("bookingDate", testData.get("bookingDate"))
+                .formParam("ticketCount", testData.get("ticketCount"))
+                .log().all()
+                .when()
+                .post("/MovieAPI/BookingService/addBooking")
+                .then()
+                .log().all()
+                .extract().response();
+
+        // Status code validation
+        int statusCode = response.getStatusCode();
+        Assert.assertTrue(
+                ((java.util.List<Integer>) testData.get("expectedStatusCodes")).contains(statusCode),
+                "Unexpected status code: " + statusCode
+        );
+
+        // Expected text validation
+        String expectedText = (String) testData.get("expectedText");
+        if (!expectedText.isEmpty()) {
+            Assert.assertTrue(
+                    response.asString().toLowerCase().contains(expectedText.toLowerCase()),
+                    "Response does not contain expected text: " + expectedText
+            );
+        }
+    }
+}

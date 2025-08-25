@@ -1,0 +1,56 @@
+package tests;
+
+import base.BaseTest;
+import io.qameta.allure.*;
+import io.restassured.response.Response;
+import org.testng.annotations.Test;
+import utils.DataProviderUtils;
+
+import java.util.Map;
+
+import static io.restassured.RestAssured.given;
+
+@Epic("Booking API Tests")
+@Feature("Add Booking Feature")
+public class BookingTests extends BaseTest {
+
+    @Test(dataProvider = "bookingData", dataProviderClass = DataProviderUtils.class)
+    @Description("Verify booking API with multiple positive and negative scenarios")
+    public void createBookingTest(Map<String, Object> testData) {
+
+        String bookingId = testData.get("bookingId").toString();
+        String userId = testData.get("userId").toString();
+        String movieTitle = testData.get("movieTitle").toString();
+        String bookingDate = testData.get("bookingDate").toString();
+        String ticketCount = testData.get("ticketCount").toString();
+        int expectedStatus = Integer.parseInt(testData.get("expectedStatusCode").toString());
+
+        Allure.step("Running test: " + testData.get("id") + 
+                    " | Movie Title: " + (movieTitle.isEmpty() ? "Missing movie title" : movieTitle));
+
+        Response response =
+        	    given()
+        	        .header("Authorization", "Bearer " + token)
+        	        .contentType("application/x-www-form-urlencoded")
+        	        .formParam("bookingId", bookingId)
+        	        .formParam("userId", userId)
+        	        .formParam("movieTitle", movieTitle)
+        	        .formParam("bookingDate", bookingDate)
+        	        .formParam("ticketCount", ticketCount)
+        	    .when()
+        	        .post(configLoader.getAddBookingEndpoint());
+
+        // Attach request & response to Allure report
+        attachText("Request Data", testData.toString());
+        attachText("Response Body", response.asString());
+
+        // Assertion
+        response.then().statusCode(expectedStatus);
+    }
+
+    @Attachment(value = "{0}", type = "text/plain")
+    public String attachText(String name, String content) {
+        return content;
+    }
+}
+

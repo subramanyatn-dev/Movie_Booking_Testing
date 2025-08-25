@@ -1,0 +1,7 @@
+tests/AuthenticationTests.class
+tests/BookingTests.class
+tests/ViewBookingTests.class
+tests/DeleteBookingTests.class
+utils/DataProviderUtils.class
+base/BaseTest.class
+utils/ConfigLoader.class

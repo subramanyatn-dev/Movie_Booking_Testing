@@ -1,0 +1,79 @@
+[
+  {
+    "testCaseId": "SCRUM-73",
+    "description": "New unique booking with all valid input",
+    "bookingId": "9001",
+    "userId": "1003",
+    "movieTitle": "Uncharted",
+    "bookingDate": "01/09/2022",
+    "ticketCount": "4",
+    "expectedStatusCodes": [200],
+    "expectedText": ""
+  },
+  {
+    "testCaseId": "SCRUM-74",
+    "description": "Missing movieTitle",
+    "bookingId": "9002",
+    "userId": "1003",
+    "movieTitle": "",
+    "bookingDate": "01/09/2022",
+    "ticketCount": "4",
+    "expectedStatusCodes": [200, 400, 422],
+    "expectedText": "movie"
+  },
+  {
+    "testCaseId": "SCRUM-75",
+    "description": "Invalid Ticket Count",
+    "bookingId": "9003",
+    "userId": "1003",
+    "movieTitle": "Avatar",
+    "bookingDate": "01/09/2022",
+    "ticketCount": "-5",
+    "expectedStatusCodes": [200, 400, 422],
+    "expectedText": "ticket"
+  },
+  {
+    "testCaseId": "SCRUM-76",
+    "description": "Wrong bookingDate format (YYYY/MM/DD)",
+    "bookingId": "9004",
+    "userId": "1003",
+    "movieTitle": "Interstellar",
+    "bookingDate": "2022/09/01",
+    "ticketCount": "2",
+    "expectedStatusCodes": [200, 400, 422],
+    "expectedText": "date"
+  },
+  {
+    "testCaseId": "SCRUM-77",
+    "description": "Non-existent date (31/02)",
+    "bookingId": "9005",
+    "userId": "1003",
+    "movieTitle": "Titanic",
+    "bookingDate": "31/02/2022",
+    "ticketCount": "3",
+    "expectedStatusCodes": [200, 400, 422],
+    "expectedText": "date"
+  },
+  {
+    "testCaseId": "SCRUM-120",
+    "description": "Invalid bookingId (non-numeric)",
+    "bookingId": "abc123",
+    "userId": "1003",
+    "movieTitle": "Matrix",
+    "bookingDate": "01/09/2022",
+    "ticketCount": "2",
+    "expectedStatusCodes": [200, 400, 422],
+    "expectedText": "bookingid"
+  },
+  {
+    "testCaseId": "SCRUM-121",
+    "description": "Invalid userId (non-numeric)",
+    "bookingId": "9006",
+    "userId": "abc",
+    "movieTitle": "Matrix",
+    "bookingDate": "01/09/2022",
+    "ticketCount": "2",
+    "expectedStatusCodes": [200, 400, 422],
+    "expectedText": "userid"
+  }
+]

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="MovieAPI Test Suite" >
+
+    <!-- You can add more test groups here if needed -->
+    <test name="Booking API Tests">
+
+        <classes>
+            <!-- Auth Tests -->
+            <class name="tests.AuthTests" />
+
+            <!-- Add Booking Tests (SCRUM-73 to SCRUM-121) -->
+            <class name="tests.AddBookingTests" />
+
+            <!-- If later we add View/Delete Booking -->
+            <!-- <class name="tests.ViewBookingTests" /> -->
+            <!-- <class name="tests.DeleteBookingTests" /> -->
+        </classes>
+
+    </test>
+
+</suite>

@@ -1,0 +1,55 @@
+[
+  {
+    "id": "DEL-01",
+    "description": "Delete booking with valid bookingId",
+    "endpoint": "delete_booking_by_id",
+    "bookingId": "1",
+    "expectedStatusCode": 200
+  },
+  {
+    "id": "DEL-02",
+    "description": "Delete booking with invalid bookingId",
+    "endpoint": "delete_booking",
+    "bookingId": "invalid_id",
+    "expectedStatusCode": 404
+  },
+  {
+    "id": "DEL_BY_ID-01",
+    "description": "Deleting Booking of existing Booking Id (JSON)",
+    "endpoint": "delete_booking_by_id",
+    "bookingId": "2",
+    "accept": "application/json",
+    "expectedStatusCode": 200
+  },
+  {
+    "id": "DEL_BY_ID-02",
+    "description": "Deleting Booking of deleted Booking Id using json but now (XML)", 
+    "endpoint": "delete_booking_by_id",
+    "bookingId": "2",
+    "accept": "application/xml",
+    "expectedStatusCode": 200
+  },
+  {
+    "id": "DEL_BY_ID-03",
+    "description": "Delete Booking by Using Non Existing Booking Id",
+    "endpoint": "delete_booking_by_id",
+    "bookingId": "10",
+    "accept": "application/json",
+    "expectedStatusCode": 200
+  },
+  {
+    "id": "DEL_BY_ID-04",
+    "description": "Delete Booking by Using Invalid Booking Id",
+    "endpoint": "delete_booking_by_id",
+    "bookingId": "Two",
+    "accept": "application/json",
+    "expectedStatusCode": 404
+  },
+  {
+    "id": "DEL_BY_ID-05",
+    "description": "Delete booking with wrong end point",
+    "endpoint": "delete_booking",
+    "bookingId": "12000",
+    "expectedStatusCode": 404
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "AUTH-01",
+    "description": "Validate Auth with Correct Credential",
+    "endpoint": "authentication",
+    "username": "user1",
+    "password": "pass123",
+    "expectedStatusCode": 200,
+    "expectAuthCode": true
+  },
+  {
+    "id": "AUTH-02",
+    "description": "Validate Auth with Invalid Authorization Code (Already Used)",
+    "endpoint": "token_endpoint",
+    "auth_code": "DYNAMIC_AUTH_CODE",
+    "expectedStatusCode": 400,
+    "expectError": true
+  },
+  {
+    "id": "AUTH-03",
+    "description": "Validate Auth with Incorrect Password",
+    "endpoint": "authentication",
+    "username": "user1",
+    "password": "wrongpass",
+    "expectedStatusCode": 401,
+    "expectError": true
+  },
+  {
+    "id": "AUTH-04",
+    "description": "Validate Auth with Missing Username",
+    "endpoint": "authentication",
+    "password": "pass123",
+    "expectedStatusCode": 401,
+    "expectError": true
+  },
+  {
+    "id": "AUTH-05",
+    "description": "Validate Auth with Invalid Authorization Code",
+    "endpoint": "token_endpoint",
+    "auth_code": "invalid_code",
+    "expectedStatusCode": 400,
+    "expectError": true
+  }
+]

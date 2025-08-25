@@ -1,0 +1,56 @@
+[
+  {
+    "id": "VIEW-01",
+    "description": "Get All bookings in JSON",
+    "endpoint": "view_booking_list",
+    "accept": "application/json",
+    "expectedStatusCode": 200
+  },
+  {
+    "id": "VIEW-02",
+    "description": "Get All bookings in XML",
+    "endpoint": "view_booking_list",
+    "accept": "application/xml",
+    "expectedStatusCode": 200
+  },
+  {
+    "id": "VIEW-03",
+    "description": "Missing Accept Header",
+    "endpoint": "view_booking_list",
+    "expectedStatusCode": 406
+  },
+  {
+    "id": "VIEW_BY_ID-01",
+    "description": "Searching By Existing Booking Id (JSON)",
+    "endpoint": "view_booking_by_id",
+    "bookingId": "2",
+    "accept": "application/json",
+    "expectedStatusCode": 200,
+    "expectBookingId": true
+  },
+  {
+    "id": "VIEW_BY_ID-02",
+    "description": "Searching By Non Existing Booking Id",
+    "endpoint": "view_booking_by_id",
+    "bookingId": "10",
+    "accept": "application/json",
+    "expectedStatusCode": 204
+  },
+  {
+    "id": "VIEW_BY_ID-03",
+    "description": "Searching By Invalid Booking Id Format",
+    "endpoint": "view_booking_by_id",
+    "bookingId": "two",
+    "accept": "application/json",
+    "expectedStatusCode": 404
+  },
+  {
+    "id": "VIEW_BY_ID-04",
+    "description": "Searching By Existing Booking Id (XML)",
+    "endpoint": "view_booking_by_id",
+    "bookingId": "2",
+    "accept": "application/xml",
+    "expectedStatusCode": 200,
+    "expectBookingId": true
+  }
+]
